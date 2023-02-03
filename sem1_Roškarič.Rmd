@@ -1,8 +1,9 @@
 ---
 title: "sem1_Roškarič"
+always_allow_html: true
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 date: "2022-10-31"
 ---
 
@@ -107,7 +108,7 @@ ggplot(data=df,aes(x,y)) +
   geom_point(aes(col=true_false)) +
   
   # Izris krivulje
-  stat_function(fun="graf", args = list(lambda=lambda)) +
+  stat_function(fun=graf, args = list(lambda=lambda)) +
   
   xlim(-5,5) +
   
@@ -227,7 +228,7 @@ S pomočjo knjižnice kableExtra smo povzeli rezultate našega ocenjevanja v obl
 # Stolpci st_ocen+1 oz. +5 (1001:1005) vsebujejo zanimive podatke
 tabela = df_ocene[,(st_ocen+1):(st_ocen+5)]
 names(tabela) = c("Lambda", "Stevilo tock","Povprecje", "Spodnja meja", "Zgornja meja")
-kable(tabela,format="html",digits=3) %>%
+kable(tabela,digits=3) %>%
 kable_styling()
 ```
 
